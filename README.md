@@ -14,7 +14,6 @@ Este repositório contém a implementação de tabelas dinâmicas utilizando a b
 - [Class Variance Authority](https://cva.style/) (Gerenciamento de estilos)
 - [clsx](https://www.npmjs.com/package/clsx) (Manipulação de classes CSS)
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) (Otimização de classes Tailwind)
-- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate) (Animações)
 
 ## 📌 Funcionalidades
 
