@@ -6,9 +6,9 @@ import {
   EllipsisIcon,
   Trash2Icon,
 } from "lucide-react";
-import { DataTableColumnHeader } from "../DataTable/data-table-column-header";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
+import { DataTableColumnHeader } from "../ui/DataTable/data-table-column-header";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,7 +24,7 @@ export const columns: ColumnDef<Invoice>[] = [
         table.getRowCount() === table.getSelectedRowModel().rows.length;
       return (
         <Checkbox
-          className="mt-px"
+          className="mt-px ml-2  border-white"
           checked={
             getIsAllPageRowsSelected ||
             ((table.getIsAllPageRowsSelected() ||

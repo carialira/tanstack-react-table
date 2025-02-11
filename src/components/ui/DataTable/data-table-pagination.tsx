@@ -4,7 +4,7 @@ import {
   ChevronsLeftIcon,
   ChevronsRightIcon,
 } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../button";
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "../select";
 import { useDataTable } from "./data-table-context";
 
 export function DataTablePagination() {

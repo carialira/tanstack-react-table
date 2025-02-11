@@ -1,11 +1,11 @@
 import { Settings2Icon } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../dropdown-menu";
 import { useDataTable } from "./data-table-context";
 
 export function DataTableColumnsVisibilityDropdown() {

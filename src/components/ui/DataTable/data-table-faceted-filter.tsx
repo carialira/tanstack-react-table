@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "../select";
 import { useDataTable } from "./data-table-context";
 
 interface IDataTableFacetedFilterProps {

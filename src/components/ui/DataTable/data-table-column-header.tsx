@@ -4,15 +4,16 @@ import {
   ArrowUpIcon,
   ChevronsUpDownIcon,
   EyeOffIcon,
+  PinIcon,
 } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../dropdown-menu";
 
 interface IDataTableColumnHeaderProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,9 +25,15 @@ export function DataTableColumnHeader({
   column,
   title,
 }: IDataTableColumnHeaderProps) {
-  if(!column.getCanSort()){
-    return title;
+  if (!column.getCanSort()) {
+    return (
+      <span className="data-[state=active]:bg-accent cursor-pointer hover:bg-transparent w-full flex pl-2">
+        {title}
+      </span>
+    );
   }
+  const isPinned = column.getIsPinned();
+  
   return (
     <div>
       <DropdownMenu>
@@ -34,7 +41,7 @@ export function DataTableColumnHeader({
           <Button
             variant="ghost"
             size="sm"
-            className="-ml-3 data-[state=active]:bg-accent cursor-pointer"
+            className="data-[state=active]:bg-accent cursor-pointer hover:bg-transparent hover:text-slate-300 focus-visible:ring-transparent"
           >
             {title}
             {!column.getIsSorted() && <ChevronsUpDownIcon />}
@@ -58,10 +65,45 @@ export function DataTableColumnHeader({
             Desc
           </DropdownMenuItem>
 
+          {column.getCanPin() && (
+            <>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onSelect={() => {
+                  if (isPinned !== "left") {
+                    column.pin("left");
+                  } else {
+                    column.pin(false);
+                  }
+                }}
+              >
+                <PinIcon className="text-muted-foreground size-4 rotate-45" />
+                {isPinned !== "left" ? "Pin left" : "Unpin left"}
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onSelect={() => {
+                  if (isPinned !== "right") {
+                    column.pin("right");
+                  } else {
+                    column.pin(false);
+                  }
+                }}
+              >
+                <PinIcon className="text-muted-foreground size-4 -rotate-45" />
+                {isPinned !== "right" ? "Pin right" : "Unpin right"}
+              </DropdownMenuItem>
+            </>
+          )}
+
           {column.getCanHide() && (
             <>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer" onSelect={()=> column.toggleVisibility(false)}>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onSelect={() => column.toggleVisibility(false)}
+              >
                 <EyeOffIcon className="text-muted-foreground size-4" />
                 Hide
               </DropdownMenuItem>

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Table } from "../ui/table";
+import { Table } from "../table";
 import { DataTableBody, MemorizedDataTableBody } from "./data-table-body";
 import { useDataTable } from "./data-table-context";
 import { DataTableHeader } from "./data-table-header";
@@ -22,7 +22,7 @@ export function DataTableContent(){
   );
 
   return(
-    <Table style={colSizeVariables}>
+    <Table style={colSizeVariables} className="overflow-x-auto w-full">
       <DataTableHeader />
       {columnSizingInfo.isResizingColumn && <MemorizedDataTableBody />}
       {!columnSizingInfo.isResizingColumn && <DataTableBody />}

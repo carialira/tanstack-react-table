@@ -1,4 +1,4 @@
-import { Input } from "../ui/input";
+import { Input } from "../input";
 import { useDataTable } from "./data-table-context";
 
 interface IDataTableTextFilterProps {
