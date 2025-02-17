@@ -13,6 +13,17 @@ export function DataTableHeader() {
         return (
           <TableRow key={headerGroup.id} className="bg-stone-600">
             {headerGroup.headers.map((header, index, headerCells) => {
+              const columnDef = header.column.columnDef;
+              const alignment =
+              columnDef.meta && 'align' in columnDef.meta
+                ? columnDef.meta.align
+                : 'left';
+            const alignmentClass =
+              alignment === 'center'
+                ? 'text-center'
+                : alignment === 'right'
+                ? 'text-end'
+                : 'text-start';
               const cellStyle = createPinnedCellStyle({
                 index,
                 rowLength: headerCells.length,
@@ -22,9 +33,10 @@ export function DataTableHeader() {
                 <TableHead
                   key={header.id}
                   colSpan={header.colSpan}
-                  className={cn(
+                    className={cn(
                     "relative group whitespace-nowrap text-left font-normal text-stone-100 p-0",
                     "border-t border-solid border-t-stone-600 border-b border-b-stone-600 border-r border-r-stone-300 first:border-l first:border-l-stone-300 bg-stone-600",
+                    alignmentClass,
                     {
                       "sticky z-20 border-t-cyan-800 border-b-cyan-800":
                         Boolean(header.column.getIsPinned()),

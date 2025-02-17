@@ -84,6 +84,7 @@ export const columns: ColumnDef<Invoice>[] = [
     },
     meta: {
       nameInFilters: "Payment status",
+      align: "center",
     },
   },
   {
@@ -93,6 +94,7 @@ export const columns: ColumnDef<Invoice>[] = [
     },
     meta: {
       nameInFilters: "Payment Method",
+      align: "left",
     },
   },
   {
@@ -102,6 +104,7 @@ export const columns: ColumnDef<Invoice>[] = [
     },
     meta: {
       nameInFilters: "Amount",
+      align: "right",
     },
   },
   {
